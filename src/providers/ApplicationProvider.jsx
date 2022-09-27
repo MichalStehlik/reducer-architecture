@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useContext } from "react"
 
 export const SET_THEME = "SET_THEME";
+export const SET_THEME1 = "SET_THEME1";
 
 export const THEME_LIGHT = "light";
 export const THEME_DARK = "dark";
@@ -8,6 +9,9 @@ export const THEME_DARK = "dark";
 const reducer = (state, action) => {
     switch (action.type) {
         case SET_THEME: {
+            return { ...state, theme: action.payload, theme2: action.payload };
+        }
+        case SET_THEME1: {
             return { ...state, theme: action.payload };
         }
         default: {
@@ -18,6 +22,7 @@ const reducer = (state, action) => {
 
 const initialState = {
     theme: THEME_DARK,
+    theme2: THEME_DARK,
 }
 
 export const ApplicationContext = createContext(initialState);
